@@ -1,0 +1,1637 @@
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+|>>> Official root style document for the entire SkyPenguinLabs static site. All of this 
+|>>> was developed and engineered with love ~ @Totally_Not_A_Haxxer
+|>>>
+|>>> None of this is AI, so if you want to make a PR or recommendation, it better not be 
+|>>> some BS AI slop that you are throwing at us. Stay logistical. This is an actual project
+|>>> not just some ordinary site that sells products. 
+*/
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* ================ VARIABLES ================ */
+:root {
+    /*
+        [ SPL Main Theme ]
+    */
+    --spl-grey-bg: #0D0D0C;
+    --spl-white-bg: #0F0F0F;
+    --spl-black-bg: #000000;
+    --spl-grey-dark: #404040;
+    --spl-grey-light: #808080;
+    --spl-white-dark: #BFBFBF;
+    --spl-white-light: #FFFFFF;
+    /*
+        [ SPL Main Color Theme (Accents) ]
+    */
+    --spl-red-dark: #CC0000;
+    --spl-red-light: #FF0000;
+    --spl-blue-dark: #0000CC;
+    --spl-blue-light: #0000FF;
+    --spl-green-dark: #00CC00;
+    /*      [+] Gradient Applicable Accents*/
+    --accent: #06b6d4;
+    /*
+        [ SPL Theme Typography ]
+    */
+    --spl-font-mono: 'Consolas', monospace;
+    --spl-font-sans: 'Consolas', monaco, monospace;
+    /*
+        [ SPL @CSS Properties ]
+    */
+    /*
+            [+] Spacing 
+    */
+    --spl-spacing-xs: 0.25rem;
+    --spl-spacing-sm: 0.5rem;
+    --spl-spacing-md: 1rem;
+    --spl-spacing-lg: 1.5rem;
+    --spl-spacing-xl: 2rem;
+    /*
+            [+] Defaulted border radius
+    */
+    --spl-border-radius: 4px;
+    /*
+            [+] Defaulted Animations & Misc 
+    */
+    --spl-transition: all 0.2s ease-in-out;
+    --spl-container-width: 1200px;
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ SPL Root HTML->Attribute styling ] ==============
+|
+| All primary HTML components and attributes get styled here
+| these are all global. 
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--spl-font-sans);
+    background-color: var(--spl-black-bg);
+    color: var(--spl-white-light);
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--spl-white-light);
+    transition: var(--spl-transition);
+}
+
+a:hover {
+    color: var(--spl-red-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spl-spacing-md);
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ SPL Root Body Styling ] ==============
+|
+| HTML Body and content containers stay here. 
+*/
+.spl-container {
+    width: 100%;
+    max-width: var(--spl-container-width);
+    margin: 0 auto;
+    padding: 0 var(--spl-spacing-lg);
+}
+
+.spl-main {
+    flex: 1;
+    padding: var(--spl-spacing-xl) 0;
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ spl-buttons ] ==============
+|
+| Buttons were designed to follow a root prefix 'spl-button'
+| which is used to access sub-classes 'spl-button-x' where 'x'
+| equals ['primary', 'secondary', 'tertiary', n...] each subclass
+| has its own applicable modifications to the global buttons
+*/
+.spl-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border: 2px solid var(--spl-blue-dark);
+    border-radius: 4px;
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.spl-button:hover {
+    transform: translateY(-2px);
+    transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fas {
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+.spl-button i {
+    width: 25px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/*@Button->Primary*/
+.spl-button-primary {
+    background-color: var(--spl-black-bg);
+    color: var(--spl-white-light);
+}
+
+/*@Button->Secondary*/
+.spl-button-secondary {
+    background-color: var(--spl-black-bg);
+    color: var(--spl-white-light);
+    border: 2px solid var(--spl-green-dark);
+
+}
+
+/*@Button->Tertiary*/
+.spl-button-tertiary {
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-blue-dark);
+}
+
+/*@Button->Close*/
+.spl-static-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #000000;
+    border: 2px solid var(--spl-red-dark);
+    color: var(--spl-white-light);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ spl-header ] ==============
+|
+| The header was designed to be minimalistic, while still
+| using our main color pallete, and staying simple to our 
+| theme. This simply includes a brand icon, label / brand name,
+| and then buttons / actions on the far right which use the 
+| button class 'spl-button' for the root of all buttons rendered
+*/
+.spl-header {
+    background-color: var(--spl-black-bg);
+    padding: var(--spl-spacing-md) 0;
+    border-bottom: 2px solid var(--spl-grey-dark);
+}
+
+.spl-header .spl-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spl-header-brand {
+    display: flex;
+    align-items: center;
+}
+
+.spl-logo {
+    height: 46px;
+    margin-right: var(--spl-spacing-md);
+}
+
+.spl-brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--spl-white-light);
+}
+
+.spl-header-actions {
+    display: flex;
+    gap: var(--spl-spacing-md);
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+/// 
+/// We take donations in Solana, Ethereum, or if people want, they can buy stuff from our print on demand 
+/// Shopify if they do not want anything else on the product shop (which, honestly, shopify was designed
+/// explicitly to push users towards SPL products) 
+///
+/* ==================== DONATE DROPDOWN - DESKTOP VERSION ==================== */
+
+
+
+.spl-donate-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 10px;
+    width: 340px;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-blue-dark);
+    border-radius: var(--spl-border-radius);
+    padding: var(--spl-spacing-md);
+    z-index: 100;
+    display: none;
+    animation: spl-fade-in 0.3s ease;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.spl-donate-dropdown::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: var(--spl-border-radius) var(--spl-border-radius) 0 0;
+}
+
+.spl-donate-dropdown.active {
+    display: block;
+}
+
+.spl-donate-header {
+    text-align: center;
+    margin-bottom: var(--spl-spacing-md);
+    padding-bottom: var(--spl-spacing-sm);
+    border-bottom: 1px solid var(--spl-grey-dark);
+}
+
+.spl-donate-header h4 {
+    font-size: 1.1rem;
+    color: var(--spl-white-light);
+    margin-bottom: var(--spl-spacing-xs);
+    font-weight: 600;
+}
+
+.spl-donate-header p {
+    font-size: 0.85rem;
+    color: var(--spl-white-dark);
+    font-family: var(--spl-font-sans);
+}
+
+.spl-crypto-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spl-spacing-md);
+    margin-bottom: var(--spl-spacing-md);
+}
+
+.spl-crypto-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    padding: var(--spl-spacing-md);
+    transition: var(--spl-transition);
+}
+
+.spl-crypto-item:hover {
+    border-color: var(--spl-blue-dark);
+    transform: translateY(-2px);
+}
+
+.spl-crypto-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spl-spacing-sm);
+    margin-bottom: var(--spl-spacing-sm);
+}
+
+.spl-crypto-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.fab.fa-ethereum {
+    color: #627EEA;
+}
+
+.spl-crypto-label span {
+    font-family: var(--spl-font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--spl-white-light);
+}
+
+.spl-crypto-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spl-spacing-sm);
+}
+
+.spl-crypto-address {
+    font-family: var(--spl-font-mono);
+    font-size: 0.75rem;
+    color: var(--spl-white-dark);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: var(--spl-spacing-sm);
+    border-radius: var(--spl-border-radius);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid var(--spl-grey-dark);
+}
+
+.spl-crypto-actions {
+    display: flex;
+    gap: var(--spl-spacing-sm);
+}
+
+.spl-crypto-link,
+.spl-crypto-copy {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 0;
+    font-size: 0.75rem;
+    border-radius: var(--spl-border-radius);
+    transition: var(--spl-transition);
+    background-color: var(--spl-black-bg);
+    border: 1px solid var(--spl-grey-dark);
+}
+
+.spl-crypto-link {
+    color: var(--spl-red-dark);
+    text-decoration: none;
+}
+
+.spl-crypto-copy {
+    color: var(--spl-white-dark);
+    cursor: pointer;
+}
+
+.spl-crypto-link:hover,
+.spl-crypto-copy:hover {
+    transform: translateY(-2px);
+    border-color: var(--spl-blue-dark);
+}
+
+.spl-donate-footer {
+    text-align: center;
+    margin-top: var(--spl-spacing-md);
+    padding-top: var(--spl-spacing-sm);
+    border-top: 1px solid var(--spl-grey-dark);
+}
+
+.spl-donate-contact {
+    font-size: 0.8rem;
+    color: var(--spl-white-dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spl-spacing-xs);
+    transition: var(--spl-transition);
+}
+
+.spl-donate-contact:hover {
+    color: var(--spl-blue-light);
+}
+
+@keyframes spl-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ spl-info ] ==============
+|
+| spl-info refers to the tooltips that appear on the page
+| which have a very simplistic style. spl-info, is just the 
+| style for the tooltip action trigger itself, rather than 
+| the overlay which the tooltip calls / renders. 
+*/
+.spl-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-red-dark);
+    color: var(--spl-white-light);
+    font-family: var(--spl-font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--spl-transition);
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+
+.spl-info::after {
+    content: "i";
+
+}
+
+.spl-info:hover {
+    transform: translateY(-2px);
+    border-color: var(--spl-blue-light);
+}
+
+.spl-info:active {
+    transform: translateY(0);
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ spl-hero ] ==============
+|
+| spl-hero refers to the hero component of the page which defines the 
+| primary set of actions we use to drag people around the site without
+| having to manually scroll everything. Taking advantage of this, the 
+| spl-hero section was engineered explicitly to captivate specific 
+| groups of people, simply based on alignement, and structure. Please
+| be very sensitive when handling the style and orrientation of this 
+| componenent. 
+|
+*/
+.spl-hero {
+    padding: var(--spl-spacing-xl) 0;
+    background-color: var(--spl-black-bg);
+}
+
+.spl-hero-content {
+    text-align: center;
+    margin-bottom: var(--spl-spacing-xl);
+}
+
+.spl-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spl-spacing-md);
+    /* I found out if we create a 135 degree linear gradient with our default blue and red colors 
+       we get this pretty sick leaning gradient. I want to use this for something else
+       background: linear-gradient(135deg, var(--spl-blue-light) 0%, var(--spl-red-dark) 100%);
+
+    */
+    /* Gradients 100 degrees was chosen for just the best eveness inbetween the blues*/
+    background: linear-gradient(90deg, var(--spl-blue-light) 0%, var(--spl-blue-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.spl-hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--spl-white-dark);
+    margin-bottom: var(--spl-spacing-xl);
+    font-weight: 400;
+}
+
+.spl-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spl-spacing-md);
+    margin-bottom: var(--spl-spacing-xl);
+}
+
+
+.spl-hero-divider {
+    height: 1px;
+    border-bottom: 2px solid var(--spl-grey-dark);
+    margin: var(--spl-spacing-xl) 0;
+}
+
+.spl-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spl-spacing-xl);
+    margin-bottom: var(--spl-spacing-xl);
+    text-align: center;
+}
+
+.spl-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spl-stat-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--spl-white-light);
+    margin-bottom: var(--spl-spacing-sm);
+    font-family: var(--spl-font-mono);
+    letter-spacing: 1px;
+}
+
+.spl-stat-subtitle {
+    font-size: 0.9rem;
+    color: var(--spl-grey-light);
+    font-family: var(--spl-font-mono);
+}
+
+.spl-shop-action {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spl-spacing-xl);
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+============== [ spl-footer ] ==============
+|
+| Footer was kept mostly the same, the only difference between this footer and the previous
+| is largely between the spacing, coloring, and font choice which was never properly solidifed
+| previously. 
+*/
+.spl-footer {
+    background-color: var(--spl-black-bg);
+    padding-top: var(--spl-spacing-xl);
+    border-top: 2px solid var(--spl-grey-dark);
+}
+
+.spl-footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spl-spacing-xl);
+    padding-bottom: var(--spl-spacing-xl);
+}
+
+.spl-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spl-spacing-md);
+}
+
+.spl-footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+/*Uhhhh...hey there dev. By now you otta think you found what you are looking for......right?*/
+.spl-logo-image {
+    
+    height: 30px;
+    margin-right: var(--spl-spacing-sm);
+}
+
+.spl-company-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--spl-white-light);
+}
+
+.spl-footer-description {
+    color: var(--spl-white-dark);
+    font-size: 0.9rem;
+}
+
+.spl-footer-links,
+.spl-footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spl-spacing-sm);
+}
+
+.spl-footer-links h4,
+.spl-footer-contact h4 {
+    color: var(--spl-white-light);
+    margin-bottom: var(--spl-spacing-md);
+}
+
+.spl-footer-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spl-spacing-sm);
+    color: var(--spl-white-dark);
+    transition: var(--spl-transition);
+}
+
+.spl-footer-link:hover {
+    color: var(--spl-red-light);
+}
+
+.spl-footer-link i {
+    min-width: 20px;
+}
+
+.spl-footer-bottom {
+    padding: var(--spl-spacing-md) 0;
+    border-top: 1px solid var(--spl-grey-dark);
+    text-align: center;
+    color: var(--spl-grey-light);
+    font-size: 0.9rem;
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+///////////////////// [spl-featured/spl-product] ///////////////
+/// Product grid and styling for the main static page. Note that 
+/// this style does not correlate with the style used in the 
+/// product_iceberg
+*/
+.spl-featured-section {
+    padding: 4rem 0;
+}
+
+.spl-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.spl-product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    overflow: hidden;
+    min-height: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.spl-product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--spl-blue-dark);
+}
+
+.spl-product-header {
+    padding: 10px;
+}
+
+
+/*
+Note  > Make sure titles do not exceed more than two lines in the 
+        header considering the header has 10 pixels of padding to 
+        spare 
+*/
+.spl-product-title {
+    font-family: var(--spl-font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--spl-white-light);
+    margin-bottom: 12px;
+}
+
+.spl-product-divider {
+    height: 1px;
+    background-color: var(--spl-grey-dark);
+    border: none;
+    margin: 0;
+}
+
+.spl-product-body {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/*
+Note  > I decided the standard for the maximum amount of 
+        characters these desc's should use, as 118 characters
+        which just makes it look right for some reason. 
+
+        Titles also follow a similar rule as seen above 
+*/
+.spl-product-description {
+    color: var(--spl-white-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 8rem;
+}
+
+.spl-product-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--spl-grey-dark);
+}
+
+.spl-product-price {
+    font-family: var(--spl-font-mono);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--spl-white-light);
+}
+
+.spl-product-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-green-dark);
+    color: var(--spl-white-light);
+    font-family: var(--spl-font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--spl-border-radius);
+    cursor: pointer;
+    transition: var(--spl-transition);
+    text-decoration: none;
+}
+
+.spl-product-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--spl-blue-light);
+    color: var(--spl-white-light);
+}
+
+.spl-section-title {
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--spl-blue-dark);
+    color: var(--spl-white-light);
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+///////////////////// [spl-filter] ///////////////
+/// spl-filter resembles the product listing on the main static page
+/// that lists 4 courses / products per product category, before forcing
+/// you to view all products in the spl_product_iceberg page. This is 
+/// technically built on the above. 
+*/
+.spl-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spl-spacing-lg);
+    flex-wrap: wrap;
+}
+
+.spl-filter-categories {
+    display: flex;
+    gap: var(--spl-spacing-sm);
+    flex-wrap: wrap;
+}
+
+.spl-filter-btn {
+    background-color: var(--spl-black-bg);
+    color: var(--spl-white-dark);
+    border: 2px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    padding: 0.5rem 1rem;
+    font-family: var(--spl-font-mono);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--spl-transition);
+}
+
+
+.spl-filter-all {
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-blue-dark);
+    color: var(--spl-blue-light);
+    font-family: var(--spl-font-mono);
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: var(--spl-border-radius);
+    cursor: pointer;
+    transition: var(--spl-transition);
+    border-color: red;
+    color: red;
+    font-weight: bold;
+}
+
+.spl-filter-all:hover {
+    transform: translateY(-2px);
+    background-color: red;
+    color: white;
+}
+
+
+.spl-filter-btn:hover {
+    border-color: var(--spl-blue-dark);
+    color: var(--spl-white-light);
+    transform: translateY(-2px);
+}
+
+.spl-filter-btn.active {
+    background-color: var(--spl-black-bg);
+    border-color: var(--spl-blue-light);
+    color: var(--spl-white-light);
+}
+
+.spl-filter-search {
+    position: relative;
+    min-width: 250px;
+}
+
+.spl-filter-search input {
+    width: 100%;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    color: var(--spl-white-light);
+    font-family: var(--spl-font-mono);
+    font-size: 0.875rem;
+    outline: none;
+    transition: var(--spl-transition);
+}
+
+.spl-filter-search input:focus {
+    border-color: var(--spl-blue-dark);
+}
+
+.spl-filter-search i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--spl-grey-light);
+}
+
+
+.spl-product-item {
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    overflow: hidden;
+    transition: var(--spl-transition);
+    max-height: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.spl-product-item:hover {
+    border-color: var(--spl-blue-dark);
+    transform: translateY(-4px);
+}
+
+
+.spl-product-content {
+    padding: var(--spl-spacing-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.spl-product-category {
+    font-family: var(--spl-font-mono);
+    font-size: 0.75rem;
+    color: var(--spl-blue-light);
+    text-transform: uppercase;
+    margin-bottom: var(--spl-spacing-xs);
+}
+
+.spl-product-title {
+    font-family: var(--spl-font-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--spl-white-light);
+    margin-bottom: var(--spl-spacing-sm);
+}
+
+.spl-product-description {
+    font-size: 0.875rem;
+    color: var(--spl-white-dark);
+    margin-bottom: var(--spl-spacing-md);
+    flex-grow: 1;
+}
+
+.spl-product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.spl-product-price {
+    font-family: var(--spl-font-mono);
+    font-weight: 600;
+    color: var(--spl-white-light);
+}
+
+.spl-product-item {
+    animation: spl-fade-in 0.3s ease-in-out;
+}
+
+.spl-product-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spl-spacing-xl);
+    color: var(--spl-grey-light);
+    font-family: var(--spl-font-mono);
+}
+
+@keyframes spl-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+///////////////////// [spl-coaching] ///////////////
+/// The 'coaching' section defines all of what we 
+/// are going to offer outside of just course and 
+/// product selling (alongside merchandise as well)
+/// as we also do freelance services, contracting and 
+/// services like personal education. 
+///
+*/
+.spl-coaching-section {
+    padding: var(--spl-spacing-xl) 0;
+    background-color: var(--spl-black-bg);
+}
+
+.spl-coaching-header {
+    text-align: center;
+    margin-bottom: var(--spl-spacing-lg);
+}
+
+.spl-coaching-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: var(--spl-spacing-sm);
+    color: var(--spl-white-light);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.spl-coaching-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--spl-blue-dark);
+}
+
+.spl-coaching-subtitle {
+    font-size: 1.1rem;
+    color: var(--spl-white-dark);
+    font-family: var(--spl-font-sans);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.spl-highlight {
+    color: var(--spl-white-light);
+    font-weight: 600;
+}
+
+.spl-coaching-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.spl-coaching-card {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    padding: 20px;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: flex-start;
+}
+
+.spl-coaching-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--spl-blue-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 255, 0.1);
+}
+
+.spl-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: var(--spl-black-bg);
+    border: 2px solid var(--spl-blue-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.spl-card-icon i {
+    color: var(--spl-blue-light);
+    font-size: 1rem;
+}
+
+.spl-card-content {
+    flex: 1;
+}
+
+.spl-coaching-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--spl-white-light);
+    text-align: left;
+}
+
+.spl-coaching-card-description {
+    color: var(--spl-white-dark);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.spl-coaching-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.spl-coaching-button {
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-green-dark);
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.spl-coaching-button:hover {
+    background-color: rgba(0, 204, 0, 0.1);
+}
+
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+///
+/// This is a simple styling for all notifications that get called onto the render. 
+/// 'notification' in this context, is simply a box of information, that is a lot more 
+/// noticeable and is designed to be, as the information displayed is typically important
+============== [ spl-static-notification ] ==============
+|>
+|> The goal of this was to create a form of statically rendered (until de-rendered by the user)
+|> form of notification that allows for the developers of the site to get users to pay attention
+|> to specific subsets of informtion. It is not by any means a 'standard notification' as it does
+|> not have any built in timing logic, it does not appear at the top, bottom, left/right sides 
+|> and is instead placed individually and specifically by developers
+*/
+.spl-static-notification {
+    position: relative; 
+    overflow: hidden;
+    max-width: 600px;
+    margin: var(--spl-spacing-xl) auto 0;
+    background: var(--spl-black-bg);
+    border: 2px solid var(--spl-red-light);
+    border-radius: var(--spl-border-radius);
+    padding: var(--spl-spacing-lg);
+}
+
+.spl-static-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spl-spacing-md);
+    font-family: 'Roboto Mono', var(--spl-font-mono);
+    color: #ffd700;
+}
+
+.spl-static-close {
+    overflow-x: clip;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--spl-red-dark);
+    color: var(--spl-white-light);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 5;
+    border: none;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+    transform: translate(2px, -2px); /* Gap fillout. I left x 0px because it was annoying me with the */
+}
+
+
+.spl-static-close:hover {
+    background-color: var(--spl-red-light);
+}
+
+.spl-static-close i {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 14px;
+}
+
+.spl-static-icon {
+    font-size: 1.25rem;
+    color: #ffd700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.spl-static-text {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--spl-white-light);
+}
+
+.spl-static-text strong {
+    color: #ffd700;
+    font-weight: 700;
+    display: block;
+    margin-bottom: var(--spl-spacing-xs);
+    text-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
+}
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+///
+/// In case you could not tell, I fucking love overlays for web UIs. They are useful for so many things.
+/// However, I have also had a hell of a time trying to find ways to make them universal. This was my 
+/// problem on the previous version of this site as well, deployed before 9/7/2025. 
+///
+/// The idea behind this overlay style is to create a standardized canvas and container, which can be used 
+/// anywhere in the website which will then draw out or render a box of information which displays the given
+/// title, subtitle and description of what the information box in the overlay is going to display.
+///
+/// This unit is pretty simple, but the container, and methods of generating the container can be better.
+///
+/// @ReliesOn -> spl-resources/Logic/spl-logical-component.js
+///
+*/
+/* Prevent scroll on body when overlay is open */
+body.spl-overlay-open {
+    overflow: hidden;
+}
+
+
+/*
+> @OverlayContainer:
+        This is what the overlay will be generated in
+*/
+#spl-overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/*
+> @Overlay
+        : This is the style for the overlay background itself. The frost 
+          like affect which makes it an "overlay"
+*/
+.spl-overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity var(--spl-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.spl-overlay-background.active {
+    opacity: 1;
+}
+
+/*
+> @OverlayBox
+        : This is the box that displays all of the information
+*/
+.spl-overlay-box {
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: var(--spl-spacing-xl);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1002;
+}
+
+.spl-overlay-box.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.spl-overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spl-spacing-md);
+}
+
+/*
+> @OverlayBox->Title 
+        :  SPL Overlay -> information box title text (red)  
+*/
+.spl-overlay-title {
+    color: var(--spl-blue-light);
+    font-family: var(--spl-font-sans);
+    font-size: 1.8rem;
+    margin: 0;
+    border-bottom: 2px solid var(--spl-grey-dark);
+}
+
+
+/*
+> @OverlayBox->Subtitle 
+        :  SPL Overlay -> information box subtitle  
+*/
+.spl-overlay-subtitle {
+    color: var(--spl-white-light);
+    font-family: var(--spl-font-sans);
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: var(--spl-spacing-md);
+    font-weight: 500;
+}
+
+/*
+> @OverlayBox->Description 
+        :  SPL Overlay -> information box description 
+*/
+.spl-overlay-description {
+    color: var(--spl-white-dark);
+    font-family: var(--spl-font-sans);
+    line-height: 1.6;
+}
+
+.spl-overlay-description a {
+    color: var(--spl-blue-light);
+    text-decoration: none;
+}
+
+.spl-overlay-description a:hover {
+    color: var(--spl-red-light);
+    text-decoration: underline;
+}
+
+
+
+/*
+> @OverlayBox->ButtonContainer 
+        :  SPL Overlay -> Container that holds all configured button(s) (if any)
+*/
+.spl-overlay-button-container {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/*
+> @OverlayBox->Scrollbar 
+        :  Custom scrollbar for overlay. Just in case the content decides to be a dick
+*/
+.spl-overlay-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.spl-overlay-box::-webkit-scrollbar-track {
+    background: var(--spl-black-bg);
+    border-radius: var(--spl-border-radius);
+}
+
+.spl-overlay-box::-webkit-scrollbar-thumb {
+    background: var(--spl-grey-dark);
+    border-radius: var(--spl-border-radius);
+}
+
+.spl-overlay-box::-webkit-scrollbar-thumb:hover {
+    background: var(--spl-grey-light);
+}
+
+
+/*
+////////////////////////////////////////////////////
+   ______        ___                     _      __        __     
+  / __/ /____ __/ _ \___ ___  ___ ___ __(_)__  / /  ___ _/ /  ___
+ _\ \/  '_/ // / ___/ -_) _ \/ _ `/ // / / _ \/ /__/ _ `/ _ \(_-<
+/___/_/\_\\_, /_/   \__/_//_/\_, /\_,_/_/_//_/____/\_,_/_.__/___/
+         /___/              /___/                                
+////////////////////////////////////////////////////
+///
+/// All of this styling is specific to the spl-slideshow-overlay
+/// unit which is called when the button in the header specified 'TLDR'
+/// gets pressed, invoking a JS function which dynamically generates 
+/// HTML based on a set of given information along with an image to pull 
+/// and display. This CSS is the representative style for this unit. 
+*/
+.spl-slideshow-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.spl-slideshow-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.spl-slideshow-container {
+    width: 35%;
+    max-width: 1000px;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-blue-dark);
+    border-radius: var(--spl-border-radius);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.spl-slideshow-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 2;
+}
+
+.spl-slideshow-header {
+    padding: var(--spl-spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--spl-grey-dark);
+}
+
+.spl-slide-title {
+    margin: 0;
+    color: var(--spl-white-light);
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: var(--spl-font-sans);
+}
+
+
+.spl-slideshow-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    flex: 1;
+    min-height: 200px;
+}
+
+.spl-slide-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spl-spacing-md);
+    height: 100%;
+    max-height: 60vh;
+    overflow: hidden;
+}
+
+.spl-slide-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.spl-slide-nav {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--spl-black-bg);
+    border: 2px solid var(--spl-blue-dark);
+    color: var(--spl-blue-light);
+    border-radius: 10%;
+    cursor: pointer;
+    transition: var(--spl-transition);
+    margin: 0 var(--spl-spacing-md);
+    z-index: 2;
+}
+
+.spl-slide-nav:hover {
+    background-color: var(--spl-blue-dark);
+    color: var(--spl-white-light);
+    transform: scale(1.1);
+}
+
+.spl-slide-nav i {
+    font-size: 1.2rem;
+}
+
+.spl-slideshow-footer {
+    padding: var(--spl-spacing-md);
+    border-top: 1px solid var(--spl-grey-dark);
+    text-align: center;
+}
+
+.spl-slide-description {
+    color: var(--spl-white-dark);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: var(--spl-spacing-md);
+    font-family: var(--spl-font-sans);
+}
+
+.spl-slide-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--spl-spacing-sm);
+}
+
+.spl-slide-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 10%;
+    background-color: var(--spl-grey-dark);
+    cursor: pointer;
+    transition: var(--spl-transition);
+}
+
+.spl-slide-indicator.active {
+    background-color: var(--spl-blue-light);
+    transform: scale(1.2);
+}
+
+.spl-slide-image.active {
+    animation: spl-fade-in 0.3s ease forwards;
+}
+
+@keyframes spl-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
