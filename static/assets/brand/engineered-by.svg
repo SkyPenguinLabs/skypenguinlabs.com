@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Engineered by SkyPenguinLabs</title>
+  <desc id="desc">Minimal monochrome badge used in the tools-pages footer.</desc>
+  <path d="M24 128V32h16v80h32v16H24Zm64-96h16v80h32v16H88V32Z" fill="#ffffff"/>
+  <path d="M60 48h40v16H60zm0 24h40v16H60zm0 24h24v16H60z" fill="#ffffff"/>
+</svg>
