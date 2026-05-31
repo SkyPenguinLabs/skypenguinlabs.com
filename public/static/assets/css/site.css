@@ -413,13 +413,77 @@ p {
 }
 
 h1 {
-  max-width: 850px;
+  max-width: 900px;
   margin-bottom: 18px;
   font-family: var(--mono);
-  font-size: clamp(2.25rem, 5.4vw, 4.95rem);
-  line-height: 1.02;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 4rem;
+  line-height: 1;
   letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
   overflow-wrap: anywhere;
+  position: relative;
+  animation: h1-enter 520ms ease-out both;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.16em;
+  width: min(180px, 46%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+  transform-origin: left center;
+  animation: h1-accent-enter 620ms ease-out 120ms both;
+  pointer-events: none;
+}
+
+@keyframes h1-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    text-shadow:
+      0.02em 0 var(--cyan),
+      -0.02em 0 var(--magenta);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    text-shadow: none;
+  }
+}
+
+@keyframes h1-accent-enter {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  h1,
+  h1::before,
+  h1::after {
+    animation: none;
+  }
+
+  h1 {
+    opacity: 1;
+    transform: none;
+  }
+
+  h1::before {
+    display: none;
+  }
 }
 
 .hero-copy {
@@ -762,8 +826,8 @@ a.card {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(260px, 1.3fr) minmax(170px, 0.65fr) minmax(190px, 0.75fr) minmax(220px, 0.8fr);
-  gap: 28px;
+  grid-template-columns: minmax(260px, 1.45fr) repeat(4, minmax(138px, 0.68fr));
+  gap: 24px;
   align-items: start;
   padding: 34px 0;
 }
@@ -787,6 +851,10 @@ a.card {
   gap: 10px;
 }
 
+.footer-subnav {
+  margin-top: 22px;
+}
+
 .footer-links a:hover {
   color: var(--cyan);
 }
@@ -800,7 +868,9 @@ a.card {
 }
 
 .footer-stamp {
+  grid-column: 1 / -1;
   display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 12px;
   padding: 14px;
   border: 1px solid var(--line);
@@ -844,6 +914,71 @@ a.card {
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+.not-found-hero {
+  min-height: clamp(540px, 78vh, 780px);
+}
+
+.not-found-hero::after {
+  width: min(54vw, 680px);
+  height: min(54vw, 560px);
+  border-color: rgba(255, 63, 159, 0.26);
+  background:
+    linear-gradient(135deg, rgba(255, 63, 159, 0.08), rgba(25, 217, 255, 0.035)),
+    rgba(255, 255, 255, 0.018);
+}
+
+.not-found-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(250px, 0.28fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+}
+
+.not-found-panel {
+  border: 1px solid var(--line);
+  background: rgba(11, 14, 17, 0.86);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.not-found-panel h2 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+.route-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.route-list div {
+  display: grid;
+  gap: 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.route-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.route-list dt {
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.route-list dd {
+  margin: 0;
+  color: var(--muted);
 }
 
 .tools-hero {
@@ -1166,6 +1301,7 @@ a.card {
   .section-head,
   .brief-layout,
   .detail-layout,
+  .not-found-layout,
   .cta-inner,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1173,6 +1309,12 @@ a.card {
 
   .hero {
     min-height: auto;
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: 3rem;
+    line-height: 1.04;
   }
 
   .hero-aside {
@@ -1193,6 +1335,10 @@ a.card {
 
   .cta-inner {
     align-items: start;
+  }
+
+  .footer-stamp {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1219,7 +1365,8 @@ a.card {
   }
 
   h1 {
-    font-size: clamp(2rem, 11vw, 3rem);
+    font-size: 2.25rem;
+    line-height: 1.08;
   }
 
   .signal-row {

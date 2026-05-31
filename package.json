@@ -1,0 +1,13 @@
+{
+  "name": "skypenguinlabs.com",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "emulate": "firebase emulators:start --only hosting --project spl-staticsite",
+    "test:visual": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "firebase-tools": "^14.4.0"
+  }
+}

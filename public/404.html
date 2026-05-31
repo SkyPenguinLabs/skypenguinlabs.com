@@ -11,15 +11,35 @@
   <body>
     <div class="site-shell" data-site-shell>
       <main id="main">
-        <section class="hero">
-          <div class="container">
-            <p class="eyebrow">404</p>
-            <h1>Route not found.</h1>
-            <p class="hero-copy">That route is not part of the current SkyPenguinLabs static site map.</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="/">Return home</a>
-              <a class="btn btn-secondary" href="/projects/">View projects</a>
-            </div>
+        <section class="hero not-found-hero">
+          <div class="container not-found-layout">
+            <article>
+              <p class="eyebrow">404 / SkyPenguinLabs</p>
+              <h1>Signal Lost.</h1>
+              <p class="hero-copy">The requested route is not in the current static site map. Use a known surface below or let the custom 404 catch future pages until they ship.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="/">Return Home</a>
+                <a class="btn btn-secondary" href="/projects/">View Projects</a>
+                <a class="btn btn-quiet" href="/tools/">Open Utilities</a>
+              </div>
+            </article>
+            <aside class="not-found-panel" aria-label="Known routes">
+              <h2>Known Routes</h2>
+              <dl class="route-list">
+                <div>
+                  <dt>Home</dt>
+                  <dd>/</dd>
+                </div>
+                <div>
+                  <dt>R&amp;D</dt>
+                  <dd>/projects/</dd>
+                </div>
+                <div>
+                  <dt>Utilities</dt>
+                  <dd>/tools/</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
         </section>
       </main>

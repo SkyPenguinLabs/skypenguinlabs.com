@@ -10,41 +10,30 @@
     },
     {
       type: "group",
-      label: "Foss",
+      label: "R&D",
       href: "/projects/",
       icon: "projects",
       description: "Open-source project lanes, research briefs, and public tooling maps from SkyPenguinLabs.",
-      matchPaths: ["/projects/", "/projects/vibelang/", "/projects/r-and-d/pakwolf/", "/projects/ctfx/", "/projects/foss-forest/"],
+      matchPaths: ["/projects/", "/projects/vibelang/", "/projects/r-and-d/pakwolf/", "/projects/r-and-d/mxorame/", "/projects/ctfx/", "/projects/foss-forest/"],
       children: [
-        { type: "link", label: "VibeLang", href: "/projects/vibelang/", icon: "code", description: "Language and workflow research for readable automation plans and traceable operator execution.", matchPaths: ["/projects/vibelang/"] },
+        { type: "link", label: "V.I.B.E", href: "/projects/vibelang/", icon: "code", description: "Language and workflow research for readable automation plans and traceable operator execution.", matchPaths: ["/projects/vibelang/"] },
+        { type: "link", label: "FOSS Forest", href: "/projects/foss-forest/", icon: "forest", description: "The public catalog for SPL utilities, experiments, documentation tooling, and research briefs.", matchPaths: ["/projects/foss-forest/"] },
         { type: "link", label: "PakWolf", href: "/projects/r-and-d/pakwolf/", icon: "package", description: "R&D for artifact, package, and binary inspection workflows with defensible notes.", matchPaths: ["/projects/r-and-d/pakwolf/"] },
         { type: "link", label: "CTFx", href: "/projects/ctfx/", icon: "flag", description: "Lab and challenge operations for focused security exercises and evidence-oriented practice.", matchPaths: ["/projects/ctfx/"] },
-        { type: "link", label: "FOSS Forest", href: "/projects/foss-forest/", icon: "forest", description: "The public catalog for SPL utilities, experiments, documentation tooling, and research briefs.", matchPaths: ["/projects/foss-forest/"] }
+        { type: "link", label: "MxOramë", href: "/projects/r-and-d/mxorame/", icon: "more", description: "Future R&D lane for memory, orchestration, and automation experiments.", matchPaths: ["/projects/r-and-d/mxorame/"] }
       ]
     },
     {
       type: "group",
-      label: "Tools",
+      label: "Utilities",
       href: "/tools/",
       icon: "tools",
       description: "Practical operator utilities organized by automation, cybersecurity, and reusable snippets.",
-      matchPaths: ["/tools/"],
+      matchPaths: ["/tools/", "/tools/docs/", "/tools/upcoming/"],
       children: [
-        { type: "link", label: "Automation", href: "/tools/#automation", icon: "automation", description: "Workflow, fleet bootstrap, orchestration, and scheduler utilities for repeatable operations.", matchPaths: ["/tools/#automation"] },
-        { type: "link", label: "Cybersecurity", href: "/tools/#cybersecurity", icon: "shield", description: "Defensive utilities for credential hygiene, phishing review, telemetry, and incident evidence.", matchPaths: ["/tools/#cybersecurity"] },
-        { type: "link", label: "Snippets", href: "/tools/#snippets", icon: "snippets", description: "Reusable shell, PowerShell, and YARA fragments for fast field work and reference tasks.", matchPaths: ["/tools/#snippets"] }
-      ]
-    },
-    {
-      type: "group",
-      label: "Misc",
-      href: "/sec-tips/",
-      icon: "more",
-      description: "Secondary site surfaces for public notes, shop links, and lightweight support routes.",
-      matchPaths: ["/sec-tips/", "/shop/"],
-      children: [
-        { type: "link", label: "Shop", href: "/shop/", icon: "shop", description: "External commercial and product-facing surface kept separate from the primary R&D site.", matchPaths: ["/shop/"] },
-        { type: "link", label: "Security Tips", href: "/sec-tips/", icon: "tips", description: "Short public notes for triage, automation, documentation, and defensive security habits.", matchPaths: ["/sec-tips/"] }
+        { type: "link", label: "Index", href: "/tools/", icon: "tools", description: "The public catalog of SkyPenguinLabs utilities and operational references.", matchPaths: ["/tools/"] },
+        { type: "link", label: "Documentation Index", href: "/tools/docs/", icon: "snippets", description: "Future documentation index for utility manuals, field notes, and release references.", matchPaths: ["/tools/docs/"] },
+        { type: "link", label: "Upcoming", href: "/tools/upcoming/", icon: "automation", description: "Future queue for utilities that are planned, staged, or being prepared for release.", matchPaths: ["/tools/upcoming/"] }
       ]
     }
   ];
@@ -186,24 +175,38 @@
               <a class="icon-link" href="https://instagram.com/SkyPenguinLabs" aria-label="SkyPenguinLabs on Instagram">${icons.instagram}</a>
             </div>
           </section>
-          <nav class="footer-links" aria-label="Project footer links">
-            <h2>Project Surface</h2>
-            <a href="/projects/">Project map</a>
-            <a href="/tools/">/tools catalogue</a>
+          <nav class="footer-links" aria-label="R&D footer links">
+            <h2>R&D</h2>
+            <a href="/projects/vibelang/">V.I.B.E</a>
             <a href="/projects/foss-forest/">FOSS Forest</a>
-            <a href="/sec-tips/">Security tips</a>
+            <a href="/projects/r-and-d/pakwolf/">PakWolf</a>
+            <a href="/projects/ctfx/">CTFx</a>
+            <a href="/projects/r-and-d/mxorame/">MxOramë</a>
           </nav>
-          <nav class="footer-links" aria-label="Engagement footer links">
-            <h2>Engage</h2>
-            <a href="mailto:skypenguinlabs@gmail.com">skypenguinlabs@gmail.com</a>
+          <nav class="footer-links" aria-label="Follow the War footer links">
+            <h2>Follow the War</h2>
+            <a href="/war-room/">War Room</a>
+            <a href="/whitepapers/">Whitepapers</a>
             <a href="https://github.com/SkyPenguinLabs">GitHub organization</a>
-            <a href="/shop/">Shop surface</a>
-            <a href="/404.html">404 route</a>
+            <a href="https://x.com/SkyPenguinLabs">X / SkyPenguinLabs</a>
+            <a href="https://instagram.com/SkyPenguinLabs">Instagram</a>
           </nav>
-          <section class="footer-stamp">
-            <p class="footer-note">© 2026 SkyPenguinLabs. Simplicity &gt; Complexity.</p>
-            <p class="footer-note">Public claims stay conservative until release state, support model, and evidence are documented.</p>
-          </section>
+          <nav class="footer-links" aria-label="About footer links">
+            <h2>About</h2>
+            <a href="/mission/">Mission</a>
+            <a href="/pages/spl_forms_list.html">Forms Page</a>
+            <a href="/pages/spl_product_iceberg.html">General Product(s)</a>
+            <a href="/pages/spl_product_iceberg.html">Courses &amp; eBooks</a>
+            <a href="mailto:skypenguinlabs@gmail.com">Contact</a>
+          </nav>
+          <nav class="footer-links" aria-label="More footer links">
+            <h2>More</h2>
+            <a href="/tools/">Utilities Index</a>
+            <a href="/tools/docs/">Documentation Index</a>
+            <a href="/tools/upcoming/">Upcoming</a>
+            <a href="/sec-tips/">Security Tips</a>
+            <a href="/404.html">404 Route</a>
+          </nav>
         </div>
       </footer>
     `;

@@ -1,0 +1,33 @@
+### Current todo's for the site
+
+- Change and add to the footer parent labels:
+    Project Surface -> R&D (to the right)
+        - Children[V.I.B.E, PakWolf, Orame, CTFx, FOSS Forest]
+    Engage -> Follow the War (to the right) 
+        - Children[Github, Instagram, X/Twitter]
+    +About (To the right)
+        - Children[Mission, War Room, Whitepapers] 
+    +More  (To the right)
+        - General Product(s)
+        - Courses & eBooks
+        - Forms Page
+    +Nav (bottom right by the icon, under the icon and brand name SkyPenguinLabs)
+        - Sitemap
+        - Privacy Policy
+        - Terms of Use
+
+- Change the header to display the proper contents
+    - Tools -> Utilities  
+        - Children [Index, Documentation Index, Upcoming]
+    - FOSS -> R&D
+        - Children [V.I.B.E, FOSS Forest, PakWolf, CTFx, MxOramë]
+
+- Create a custom 404 page 
+- update the index.html file on skypenguinlabs.github.io
+- Design out the shop for SkyPenguinLabs 
+    - What is sold on the platform? 
+    - what is the platform being used for?
+
+
+    
+
